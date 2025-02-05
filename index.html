@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARA MI REINA HERMOSA!! ❤️</title>
+    <style>
+        /* Fondo con imagen */
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-image: url('https://i.pinimg.com/736x/6f/b4/d3/6fb4d35ba7b94b2be3cff1279ec91dee.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Contenedor centrado */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        h1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .gif {
+            margin-top: 20px;
+            width: 200px; /* Tamaño del GIF */
+            border-radius: 15px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .yes {
+            background-color: #ff4081;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #e6005c;
+        }
+
+        .no {
+            background-color: #ccc;
+            color: black;
+            position: absolute;
+        }
+
+        /* Mensaje romántico oculto hasta que presione "Sí" */
+        .message {
+            display: none;
+            margin-top: 20px;
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            color: black;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 30px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>¿Aceptarías ser mi cita de San Valentín? ❤️</h1>
+        <!-- Agregar GIF aquí -->
+        <img src="https://i.pinimg.com/originals/01/87/81/018781193c7e6352e785b7ee30670813.gif" alt="Gif de ejemplo" class="gif">
+        <img src="https://i.pinimg.com/originals/04/6f/84/046f8442cdddff8b800023b9e72bbf44.gif" alt="Gif de ejemplo" class="gif">
+
+        <div class="buttons">
+            <button class="yes" onclick="showMessage()">Sí ❤️</button>
+            <button class="no" id="noButton" onmouseover="moveButton()">No 💔</button>
+        </div>
+        <div class="message" id="message">
+            <h2>¡Sabía que dirías que sí! ❤️</h2>
+            <p>Mi reina hermosa, amor de mi vida, mamacita preciosa y niña de mi ojos. Aunque la distancia nos haya mantenido separados por un tiempo, mi corazón siempre ha estado contigo, soñando con el momento en que finalmente podamos compartir juntos cada sonrisa, cada caricia y cada latido.
+
+                Eres la persona más especial en mi vida, la que ilumina mis días con su ternura y llena mi alma con su amor. No hay palabras suficientes para describir lo mucho que significas para mí, pero quiero que sepas que cada día me enamoro más de ti.
+                
+                San Valentín es solo una fecha, pero mi amor por ti no necesita un día especial para celebrarse, porque en mi corazón, todos los días son una prueba de lo importante que eres para mí.
+                
+                Gracias por ser mi amor, mi mejor amiga y mi compañera en esta hermosa historia que estamos escribiendo juntos. No veo la hora de tenerte frente a mí y abrazarte con todo el amor que llevo dentro.
+                
+                Te amo con toda mi alma. 💖 💖</p>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").style.display = "block";
+            createHearts();
+        }
+
+        function moveButton() {
+            var button = document.getElementById("noButton");
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 50);
+            button.style.left = x + "px";
+            button.style.top = y + "px";
+        }
+
+        function createHearts() {
+            for (let i = 0; i < 800; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.innerHTML = "❤️";
+                document.body.appendChild(heart);
+
+                let size = Math.random() * 20 + 20;
+                heart.style.fontSize = size + "px";
+
+                let startX = Math.random() * window.innerWidth;
+                heart.style.left = startX + "px";
+                heart.style.top = "-50px";
+
+                let duration = Math.random() * 3 + 2;
+                heart.style.animationDuration = duration + "s";
+
+                setTimeout(() => {
+                    heart.remove();
+                }, duration * 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>
